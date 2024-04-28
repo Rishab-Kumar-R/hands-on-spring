@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureEmployee | Home Page</title>
+    <link rel="stylesheet" th:href="@{css/index.css}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Welcome to SecureEmployee!</h1>
+        <hr class="divider">
+        <p>SecureEmployee is a secure employee management system that allows you to manage your employees with ease.
+            SecureEmployee is built using Spring Boot, Spring Security, and Thymeleaf.
+        </p>
+
+        <div class="user-info">
+            <p>User: <span sec:authentication="principal.username"></span></p>
+            <br>
+            <p>Role(s): <span sec:authentication="principal.authorities"></span></p>
+        </div>
+
+        <div sec:authorize="hasRole('ROLE_MANAGER') or hasRole('ROLE_ADMIN')">
+            <p class="link-for-meeting"><a th:href="@{/managers}"  class="meeting-link">Manager Meeting</a> (Only for Managers)</p>
+        </div>
+        <div sec:authorize="hasRole('ROLE_ADMIN')">
+            <p class="link-for-meeting"><a th:href="@{/admins}" class="meeting-link">Admin Meeting</a> (Only for Admins)</p>
+        </div>
+
+        <form action="#" th:action="@{/logout}" method="post">
+            <button type="submit" class="logout-button">Logout</button>
+        </form>
+    </div>
+</body>
+
+</html>
