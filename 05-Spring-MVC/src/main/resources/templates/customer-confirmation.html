@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Confirmation</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Student Information Confirmation</h2>
+    <p><span style="font-weight: bold;">The customer is confirmed:</span> <span
+            th:text="${customer.firstName + ' ' + customer.lastName}"></span></p>
+    <p><span style="font-weight: bold;">Free Passes:</span> <span th:text="${customer.freePasses}"></span></p>
+    <p><span style="font-weight: bold;">Postal Code:</span> <span th:text="${customer.postalCode}"></span></p>
+    <p><span style="font-weight: bold;">Course Code:</span> <span th:text="${customer.courseCode}"></span></p>
+</body>
+
+</html>

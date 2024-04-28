@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Registration Form</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Fill out the Form</h2>
+
+    <form th:action="@{/process-form}" th:object="${customer}" method="POST">
+        <label for="firstname" style="font-weight: bold;">First Name:</label>
+        <input type="text" id="firstname" name="firstname" th:field="*{firstName}" required>
+
+        <br><br>
+
+        <label for="lastname" style="font-weight: bold;">Last Name(*):</label>
+        <input type="text" id="lastname" name="lastname" th:field="*{lastName}" required>
+        <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="error"></span>
+
+        <br><br>
+
+        <label for="free-passes" style="font-weight: bold;">Free Passes(*):</label>
+        <input type="number" id="free-passes" name="free-passes" th:field="*{freePasses}" required>
+        <span th:if="${#fields.hasErrors('freePasses')}" th:errors="*{freePasses}" class="error"></span>
+
+        <br><br>
+
+        <label for="postal-code" style="font-weight: bold;">Postal Code:</label>
+        <input type="text" id="postal-code" name="postal-code" th:field="*{postalCode}" required>
+        <span th:if="${#fields.hasErrors('postalCode')}" th:errors="*{postalCode}" class="error"></span>
+
+        <br><br>
+
+        <label for="course-code" style="font-weight: bold;">Course Code:</label>
+        <input type="text" id="course-code" name="course-code" th:field="*{courseCode}" required>
+        <span th:if="${#fields.hasErrors('courseCode')}" th:errors="*{courseCode}" class="error"></span>
+
+        <br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+
+</html>

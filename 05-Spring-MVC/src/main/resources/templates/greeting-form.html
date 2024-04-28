@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{css/greeting.css}">
+    <title>Greeting</title>
+</head>
+
+<body>
+
+    <div class="form-card">
+        <form th:action="@{/process-greeting-v3}" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" placeholder="Enter your name">
+            <button type="submit">Greet me</button>
+        </form>
+    </div>
+
+</body>
+
+</html>

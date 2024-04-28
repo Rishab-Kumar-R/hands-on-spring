@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
+    <title>Student Confirmation</title>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Student Information Confirmation</h2>
+
+    <p><span style="font-weight: bold;">First Name:</span> <span th:text="${student.firstName}"></span></p>
+    <p><span style="font-weight: bold;">Last Name:</span> <span th:text="${student.lastName}"></span></p>
+    <p><span style="font-weight: bold;">Country:</span> <span th:text="${student.country}"></span></p>
+    <p><span style="font-weight: bold;">Favorite Programming Language:</span> <span
+            th:text="${student.favoriteLanguage}"></span></p>
+    <p>
+        <span style="font-weight: bold;">Favorite Operating System:</span>
+    <ul>
+        <li th:each="system: ${student.favoriteSystems}" th:text="${system}"></li>
+    </ul>
+    </p>
+</body>
+
+</html>

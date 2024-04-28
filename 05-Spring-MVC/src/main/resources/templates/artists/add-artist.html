@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Artist</title>
+    <link rel="stylesheet" th:href="@{/css/artist.css}">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Add Artist</h2>
+        <hr>
+
+        <form action="#" th:action="@{/artists/add}" th:object="${artist}" method="post" class="artist-form">
+            <div class="form-group">
+                <input type="hidden" th:field="*{id}" id="id" name="id">
+            </div>
+
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" th:field="*{firstName}" placeholder="e.g. John">
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" th:field="*{lastName}" placeholder="e.g. Doe">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" th:field="*{email}" placeholder="e.g. abc@xyz.com">
+            </div>
+            <div class="form-group">
+                <label for="genre">Genre:</label>
+                <input type="text" id="genre" name="genre" th:field="*{genre}" placeholder="e.g. Rock, Pop, Jazz, etc.">
+            </div>
+            <button type="submit">Save Artist</button>
+        </form>
+
+        <a th:href="@{/artists/list}" class="back-link">Back to List</a>
+    </div>
+
+</body>
+
+</html>
